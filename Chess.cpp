@@ -4,16 +4,38 @@
 #include <GLUT/glut.h>
 #include <OpenGL/gl.h>
 #include <OpenGL/glu.h>
+
+// Functional macros that absorb the empty parentheses ()
+#ifndef glutCloseFunc
+#define glutCloseFunc glutWMCloseFunc
+#endif
+#ifndef glutLeaveMainLoop
+#define glutLeaveMainLoop() exit(0)
+#endif
+#ifndef glutLeaveFullScreen
+#define glutLeaveFullScreen()         \
+	do                                \
+	{                                 \
+		glutReshapeWindow(800, 600);  \
+		glutPositionWindow(100, 100); \
+	} while (0)
+#endif
 #elif defined(_WIN32) || defined(_WIN64)
 // Windows Headers
-#include <windows.h> // Required on Windows before including GL
+#include <windows.h>
 #include <GL/gl.h>
 #include <GL/glu.h>
-#include <GL/glut.h> // Assumes you downloaded FreeGLUT/GLUT for Windows
+#include <GL/glut.h>
 #endif
+
 #include <stdio.h>
+#include <stdlib.h> // Required for exit()
 
 bool bIsFullScreen = false;
+const float SSR_square_size = 0.25f;
+
+// function declarations
+void drawSquares();
 
 int main(int argc, char *argv[])
 {
@@ -30,7 +52,7 @@ int main(int argc, char *argv[])
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA);
 	glutInitWindowSize(800, 600);
 	glutInitWindowPosition(100, 100);
-	glutCreateWindow("Triangles");
+	glutCreateWindow("My First RTR7 Program : Sagar Sambhaji Raut");
 
 	initialize();
 
@@ -71,40 +93,41 @@ void display(void)
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-	glBegin(GL_TRIANGLES);
-
-	for (float y = 1.0f; y >= -1.0f; y -= 0.1)
-	{
-		// printf("Y = %.1f\n", y);
-
-		for (float x = 0.0f; x < 2.0f; x += 0.2)
-		{
-			float x1 = -0.9f + x;
-			float y1 = 1.0f;
-			// printf("x1 = %.1f\n", x1);
-			// printf("y1 = %.1f\n", y1);
-			glColor3f(x / 2.0f, y, 1.0f - y); // Red
-			glVertex3f(x1, y, 0.0f);
-
-			float x2 = -1.0f + x;
-			float y2 = 0.9f;
-			// printf("x2 = %.1f\n", x2);
-			// printf("y2 = %.1f\n", y2);
-			glColor3f(x / 2.0f, y, 1.0f - y); // Red
-			glVertex3f(x2, y - 0.1f, 0.0f);
-
-			float x3 = -0.8f + x;
-			float y3 = 0.9f;
-			// printf("x3 = %.1f\n", x3);
-			// printf("y3 = %.1f\n\n", y3);
-			glColor3f(x / 2.0f, y, 1.0f - y); // Red
-			glVertex3f(x3, y - 0.1f, 0.0f);
-		}
-	}
-
-	glEnd();
+	drawSquares();
 
 	glutSwapBuffers();
+}
+
+void drawSquares()
+{
+	bool useFirstColor = true;
+
+	for (float i = -1.0f; i <= 1.0f; i += SSR_square_size)
+	{
+		for (float j = 1.0f; j >= -1.0f; j -= SSR_square_size)
+		{
+			// printf("Squares %.1f, %.1f\n", i, i + SSR_square_size);
+
+			if (useFirstColor)
+			{
+				glColor3f(1.0f, 1.0f, 1.0f); // Solid White
+			}
+			else
+			{
+				glColor3f(0.0f, 0.0f, 0.0f); // Solid Cyan
+			}
+
+			glBegin(GL_QUADS);
+			glVertex2f(i, j - SSR_square_size);					  // 1. Bottom-Left
+			glVertex2f(i + SSR_square_size, j - SSR_square_size); // 2. Bottom-Right
+			glVertex2f(i + SSR_square_size, j);					  // 3. Top-Right
+			glVertex2f(i, j);									  // 4. Top-Left
+
+			glEnd();
+
+			useFirstColor = !useFirstColor;
+		}
+	}
 }
 
 void keyboard(unsigned char key, int x, int y)
