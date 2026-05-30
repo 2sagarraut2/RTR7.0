@@ -135,39 +135,61 @@ void drawCoverBox(float startingPointX, float startingPointY, float width)
 
 void letterS(float startingPointX, float startingPointY, float width, float thickness)
 {
+    glBegin(GL_TRIANGLES);
     glColor3f(1.0f, 0.0f, 1.0f);
 
-    glBegin(GL_LINE_LOOP);
+    // Tri 1
+    glColor3f(1.0f, 0.0f, 0.0f); // Red
     glVertex2f(startingPointX, startingPointY);
     glVertex2f(startingPointX + width, startingPointY);
     glVertex2f(startingPointX + width, startingPointY - thickness);
+    // Tri 2
+    glColor3f(0.0f, 1.0f, 0.0f); // Green
+    glVertex2f(startingPointX, startingPointY);
+    glVertex2f(startingPointX + width, startingPointY - thickness);
     glVertex2f(startingPointX, startingPointY - thickness);
-    glEnd();
 
-    glBegin(GL_LINE_LOOP);
+    // Tri 1
+    glColor3f(1.0f, 0.0f, 0.0f); // Red
     glVertex2f(startingPointX, startingPointY);
     glVertex2f(startingPointX + thickness / 1.3f, startingPointY);
     glVertex2f(startingPointX + thickness / 1.3f, startingPointY - thickness * 2.5f);
+    // Tri 2
+    glColor3f(0.0f, 1.0f, 0.0f); // Green
+    glVertex2f(startingPointX, startingPointY);
+    glVertex2f(startingPointX + thickness / 1.3f, startingPointY - thickness * 2.5f);
     glVertex2f(startingPointX, startingPointY - thickness * 2.5f);
-    glEnd();
 
-    glBegin(GL_LINE_LOOP);
+    // Tri 1
+    glColor3f(1.0f, 0.0f, 0.0f); // Red
     glVertex2f(startingPointX, startingPointY - thickness - 0.06f);
     glVertex2f(startingPointX + width, startingPointY - thickness - 0.06f);
     glVertex2f(startingPointX + width, startingPointY - thickness * 2.5f);
+    // Tri 2
+    glColor3f(0.0f, 1.0f, 0.0f); // Green
+    glVertex2f(startingPointX, startingPointY - thickness - 0.06f);
+    glVertex2f(startingPointX + width, startingPointY - thickness * 2.5f);
     glVertex2f(startingPointX, startingPointY - thickness * 2.5f);
-    glEnd();
 
-    glBegin(GL_LINE_LOOP);
+    // Tri 1
+    glColor3f(1.0f, 0.0f, 0.0f); // Red
     glVertex2f(startingPointX + width / 1.4f, startingPointY - thickness - 0.06f);
     glVertex2f(startingPointX + width, startingPointY - thickness - 0.06f);
     glVertex2f(startingPointX + width, startingPointY - thickness * 4.0f);
+    // Tri 2
+    glColor3f(0.0f, 1.0f, 0.0f); // Green
+    glVertex2f(startingPointX + width / 1.4f, startingPointY - thickness - 0.06f);
+    glVertex2f(startingPointX + width, startingPointY - thickness * 4.0f);
     glVertex2f(startingPointX + width / 1.4f, startingPointY - thickness * 4.0f);
-    glEnd();
 
-    glBegin(GL_LINE_LOOP);
+    // Tri 1
+    glColor3f(1.0f, 0.0f, 0.0f); // Red
     glVertex2f(startingPointX, startingPointY - (thickness * 3));
     glVertex2f(startingPointX + width, startingPointY - (thickness * 3));
+    glVertex2f(startingPointX + width, startingPointY - thickness - (thickness * 3));
+    // Tri 2
+    glColor3f(0.0f, 1.0f, 0.0f); // Green
+    glVertex2f(startingPointX, startingPointY - (thickness * 3));
     glVertex2f(startingPointX + width, startingPointY - thickness - (thickness * 3));
     glVertex2f(startingPointX, startingPointY - thickness - (thickness * 3));
     glEnd();
@@ -175,65 +197,101 @@ void letterS(float startingPointX, float startingPointY, float width, float thic
 
 void letterA(float startingPointX, float startingPointY, float width, float thickness)
 {
+    glBegin(GL_TRIANGLES);
     glColor3f(1.0f, 0.0f, 1.0f);
 
-    glBegin(GL_LINE_LOOP);
+    // Tri 1
+    glColor3f(1.0f, 0.0f, 0.0f); // Red
     glVertex2f(startingPointX + width / 2.0f, startingPointY);
     glVertex2f(startingPointX + width / 2.0f + thickness / 1.3f, startingPointY);
     glVertex2f(startingPointX + thickness / 1.3f, startingPointY - thickness * 4.0f);
+    // Tri 2
+    glColor3f(0.0f, 1.0f, 0.0f); // Green
+    glVertex2f(startingPointX + width / 2.0f, startingPointY);
+    glVertex2f(startingPointX + thickness / 1.3f, startingPointY - thickness * 4.0f);
     glVertex2f(startingPointX, startingPointY - thickness * 4.0f);
-    glEnd();
 
-    glBegin(GL_LINE_LOOP);
+    // Tri 1
+    glColor3f(1.0f, 0.0f, 0.0f); // Red
     glVertex2f(startingPointX - width / 2.0f + width, startingPointY);
     glVertex2f(startingPointX - width / 2.0f + width + thickness / 1.3f, startingPointY);
     glVertex2f(startingPointX + width + thickness / 1.3f, startingPointY - thickness * 4.0f);
+    // Tri 2
+    glColor3f(0.0f, 1.0f, 0.0f); // Green
+    glVertex2f(startingPointX - width / 2.0f + width, startingPointY);
+    glVertex2f(startingPointX + width + thickness / 1.3f, startingPointY - thickness * 4.0f);
     glVertex2f(startingPointX + width, startingPointY - thickness * 4.0f);
-    glEnd();
 
-    glBegin(GL_LINE_LOOP);
+    // Tri 1
+    glColor3f(1.0f, 0.0f, 0.0f); // Red
     glVertex2f(startingPointX + 0.16f, startingPointY - thickness - 0.09f);
-    glVertex2f(startingPointX - 0.086f + width, startingPointY - thickness - 0.09f);
-    glVertex2f(startingPointX - 0.046f + width, startingPointY - thickness * 2.8f);
+    glVertex2f(startingPointX - 0.082f + width, startingPointY - thickness - 0.09f);
+    glVertex2f(startingPointX - 0.045f + width, startingPointY - thickness * 2.8f);
+    // Tri 2
+    glColor3f(0.0f, 1.0f, 0.0f); // Green
+    glVertex2f(startingPointX + 0.16f, startingPointY - thickness - 0.09f);
+    glVertex2f(startingPointX - 0.045f + width, startingPointY - thickness * 2.8f);
     glVertex2f(startingPointX + 0.125f, startingPointY - thickness * 2.8f);
     glEnd();
 }
 
 void letterG(float startingPointX, float startingPointY, float width, float thickness)
 {
+    glBegin(GL_TRIANGLES);
     glColor3f(1.0f, 0.0f, 1.0f);
 
-    glBegin(GL_LINE_LOOP);
+    // Tri 1
+    glColor3f(1.0f, 0.0f, 0.0f); // Red
     glVertex2f(startingPointX, startingPointY);
     glVertex2f(startingPointX + width, startingPointY);
     glVertex2f(startingPointX + width, startingPointY - thickness);
+    // Tri 2
+    glColor3f(0.0f, 1.0f, 0.0f); // Green
+    glVertex2f(startingPointX, startingPointY);
+    glVertex2f(startingPointX + width, startingPointY - thickness);
     glVertex2f(startingPointX, startingPointY - thickness);
-    glEnd();
 
-    glBegin(GL_LINE_LOOP);
+    // Tri 1
+    glColor3f(1.0f, 0.0f, 0.0f); // Red
     glVertex2f(startingPointX, startingPointY);
     glVertex2f(startingPointX + thickness / 1.3f, startingPointY);
     glVertex2f(startingPointX + thickness / 1.3f, startingPointY - thickness * 4.0f);
+    // Tri 2
+    glColor3f(0.0f, 1.0f, 0.0f); // Green
+    glVertex2f(startingPointX, startingPointY);
+    glVertex2f(startingPointX + thickness / 1.3f, startingPointY - thickness * 4.0f);
     glVertex2f(startingPointX, startingPointY - thickness * 4.0f);
-    glEnd();
 
-    glBegin(GL_LINE_LOOP);
+    // Tri 1
+    glColor3f(1.0f, 0.0f, 0.0f); // Red
     glVertex2f(startingPointX + (thickness + 0.05f), startingPointY - width / 2.0f);
     glVertex2f(startingPointX + width, startingPointY - width / 2.0f);
     glVertex2f(startingPointX + width, startingPointY - thickness * 2.5f);
+    // Tri 2
+    glColor3f(0.0f, 1.0f, 0.0f); // Green
+    glVertex2f(startingPointX + (thickness + 0.05f), startingPointY - width / 2.0f);
+    glVertex2f(startingPointX + width, startingPointY - thickness * 2.5f);
     glVertex2f(startingPointX + (thickness + 0.05f), startingPointY - thickness * 2.5f);
-    glEnd();
 
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(startingPointX + width - thickness / 1.3f, startingPointY - width / 2.0f);
-    glVertex2f(startingPointX + width, startingPointY - width / 2.0f);
+    // Tri 1
+    glColor3f(1.0f, 0.0f, 0.0f); // Red
+    glVertex2f(startingPointX + width - thickness / 1.3f, startingPointY - width / 1.8f);
+    glVertex2f(startingPointX + width, startingPointY - width / 1.8f);
+    glVertex2f(startingPointX + width, startingPointY - thickness * 4.0f);
+    // Tri 2
+    glColor3f(0.0f, 1.0f, 0.0f); // Green
+    glVertex2f(startingPointX + width - thickness / 1.3f, startingPointY - width / 1.8f);
     glVertex2f(startingPointX + width, startingPointY - thickness * 4.0f);
     glVertex2f(startingPointX + width - thickness / 1.3f, startingPointY - thickness * 4.0f);
-    glEnd();
 
-    glBegin(GL_LINE_LOOP);
+    // Tri 1
+    glColor3f(1.0f, 0.0f, 0.0f); // Red
     glVertex2f(startingPointX, startingPointY - (thickness * 3.0f));
     glVertex2f(startingPointX + width, startingPointY - (thickness * 3.0f));
+    glVertex2f(startingPointX + width, startingPointY - thickness - (thickness * 3.0f));
+    // Tri 2
+    glColor3f(0.0f, 1.0f, 0.0f); // Green
+    glVertex2f(startingPointX, startingPointY - (thickness * 3.0f));
     glVertex2f(startingPointX + width, startingPointY - thickness - (thickness * 3.0f));
     glVertex2f(startingPointX, startingPointY - thickness - (thickness * 3.0f));
     glEnd();
@@ -241,39 +299,61 @@ void letterG(float startingPointX, float startingPointY, float width, float thic
 
 void letterR(float startingPointX, float startingPointY, float width, float thickness)
 {
+    glBegin(GL_TRIANGLES);
     glColor3f(1.0f, 0.0f, 1.0f);
 
-    glBegin(GL_LINE_LOOP);
+    // Tri 1
+    glColor3f(1.0f, 0.0f, 0.0f); // Red
     glVertex2f(startingPointX, startingPointY);
     glVertex2f(startingPointX + thickness / 1.3f, startingPointY);
     glVertex2f(startingPointX + thickness / 1.3f, startingPointY - thickness * 4.0f);
+    // Tri 2
+    glColor3f(0.0f, 1.0f, 0.0f); // Green
+    glVertex2f(startingPointX, startingPointY);
+    glVertex2f(startingPointX + thickness / 1.3f, startingPointY - thickness * 4.0f);
     glVertex2f(startingPointX, startingPointY - thickness * 4.0f);
-    glEnd();
 
-    glBegin(GL_LINE_LOOP);
+    // Tri 1
+    glColor3f(1.0f, 0.0f, 0.0f); // Red
     glVertex2f(startingPointX, startingPointY);
     glVertex2f(startingPointX + width / 0.98f, startingPointY);
     glVertex2f(startingPointX + width / 0.98f, startingPointY - thickness);
+    // Tri 2
+    glColor3f(0.0f, 1.0f, 0.0f); // Green
+    glVertex2f(startingPointX, startingPointY);
+    glVertex2f(startingPointX + width / 0.98f, startingPointY - thickness);
     glVertex2f(startingPointX, startingPointY - thickness);
-    glEnd();
 
-    glBegin(GL_LINE_LOOP);
+    // Tri 1
+    glColor3f(1.0f, 0.0f, 0.0f); // Red
     glVertex2f(startingPointX + width - thickness + 0.02f, startingPointY);
     glVertex2f(startingPointX + width + 0.006f, startingPointY);
-    glVertex2f(startingPointX + width + 0.008f, startingPointY - thickness * 2.6f);
-    glVertex2f(startingPointX + width - thickness + 0.02f, startingPointY - thickness * 2.6f);
-    glEnd();
+    glVertex2f(startingPointX + width + 0.006f, startingPointY - thickness * 2.0f);
+    // Tri 2
+    glColor3f(0.0f, 1.0f, 0.0f); // Green
+    glVertex2f(startingPointX + width - thickness + 0.02f, startingPointY);
+    glVertex2f(startingPointX + width + 0.006f, startingPointY - thickness * 2.0f);
+    glVertex2f(startingPointX + width - thickness + 0.02f, startingPointY - thickness * 2.0f);
 
-    glBegin(GL_LINE_LOOP);
+    // Tri 1
+    glColor3f(1.0f, 0.0f, 0.0f); // Red
     glVertex2f(startingPointX, startingPointY - (width / 2.0f));
     glVertex2f(startingPointX + width / 0.98f, startingPointY - (width / 2.0f));
     glVertex2f(startingPointX + width / 0.98f, startingPointY - thickness - (width / 2.0f));
+    // Tri 2
+    glColor3f(0.0f, 1.0f, 0.0f); // Green
+    glVertex2f(startingPointX, startingPointY - (width / 2.0f));
+    glVertex2f(startingPointX + width / 0.98f, startingPointY - thickness - (width / 2.0f));
     glVertex2f(startingPointX, startingPointY - thickness - (width / 2.0f));
-    glEnd();
 
-    glBegin(GL_LINE_LOOP);
+    // Tri 1
+    glColor3f(1.0f, 0.0f, 0.0f); // Red
     glVertex2f(startingPointX, startingPointY - (width / 2.0f));
     glVertex2f(startingPointX + width, startingPointY - (width));
+    glVertex2f(startingPointX + width, startingPointY - thickness - (width));
+    // Tri 2
+    glColor3f(0.0f, 1.0f, 0.0f); // Green
+    glVertex2f(startingPointX, startingPointY - (width / 2.0f));
     glVertex2f(startingPointX + width, startingPointY - thickness - (width));
     glVertex2f(startingPointX, startingPointY - (width - 0.05f));
     glEnd();
